@@ -68,6 +68,8 @@ $(document).ready(function() {
 	
 	$('#idChkBtn').click(function() {
 		
+		// MySQL에서는 NULL값과 공백('')을 다른 값으로 인식한다.
+		// MySQL - CHECK 제약조건을 활용하여 COLUMN에 들어갈 수 있는 값을 제한했다.
 		// id의 빈칸을 조사
 		if($('#id').val().trim() == ""){
 			alert('id를 입력해 주십시오');
@@ -81,12 +83,12 @@ $(document).ready(function() {
 				// alert('success');
 				// alert(msg.trim());
 				
-				if(msg.trim() == "YES"){
+				if(msg.trim() == "YES" && $('#id').val().trim() != ""){
 					$('#idcheck').css('color', '#0000ff');
 					$('#idcheck').text("사용할 수 있는 아이디입니다");
 				}else{
 					$('#idcheck').css('color', '#ff0000');
-					$('#idcheck').text("사용중인 아이디입니다");
+					$('#idcheck').text("사용할 수 없는 아이디입니다");
 					$('#id').val("");
 				}
 			},

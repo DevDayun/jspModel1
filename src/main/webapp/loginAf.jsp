@@ -18,7 +18,7 @@
 		%>
 		<script type="text/javascript">
 		alert("환영합니다. <%=mem.getId() %>님");
-		//location.href = "";
+		location.href = "./bbslist.jsp";
 		</script>
 		<% 
 	}else{

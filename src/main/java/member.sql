@@ -2,10 +2,10 @@
 drop table member;
 
 create table member(
-	id varchar(50) primary key,
-	pwd varchar(50) not null,
-	name varchar(50) not null,
-	email varchar(50) unique,
+	id varchar(50) primary key check(id not in('')),
+	pwd varchar(50) not null check(pwd not in('')),
+	name varchar(50) not null check(name not in('')),
+	email varchar(50) unique check(email not in('')),
 	auth int
 );
 
